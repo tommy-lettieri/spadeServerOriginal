@@ -125,7 +125,7 @@ var handFunctions = {};
 		var s = "";
 		for(var i = 0; i<hnd.cards.length; i++)
 			s+= hnd.cards[i].value + " " + hnd.cards[i].suit + " ";
-		return s;		
+		return s;
 	}
 
 	handFunctions.display = function(hnd)
@@ -193,14 +193,14 @@ for(var i = 0; i<4;i++)
 {
 	seats[i] = " ";
 	actives[i] = false;
-}	
+}
 
 function init()
 {
 	deck = new Deck();
 	deck.shuffle();
 	hands = deck.deal();
-	
+
 	for(var i = 0; i<4;i++)
 	{
 		handFunctions.sort(hands[i]);
@@ -245,21 +245,21 @@ var url = require('url');//import url
 http.createServer(function(req, res)//create a listening sockets with objects (request, response)
 {//start create server
 	//console.log('request recieved');//the console with write 'request recieved
-	
+
 	var body = '';//store request data;
-	
+
 	//upon recieving data
 	req.on('data', function(chunk)//"on" is a function equivilant to add action listener, parameters: first is string of type of event to listen for, second is a function that takes in a single arg depending to notification
 	{//start action listener equiv
 		body+=chunk;
 	});//end action listener equiv
-	
+
 	//upon finishing the data collection
 	req.on('end', function()
 	{//start req.on
 		var postData = qs.parse(body);//create variable post data from the string of data collected which was parsed into a query string
 		//console.log(JSON.stringify(postData));//data in string version
-		
+
 		switch(postData.type)
 		{
 			case "sendMessage":
@@ -288,7 +288,7 @@ http.createServer(function(req, res)//create a listening sockets with objects (r
 				break;
 	}
 	});//end req.on
-	
+
 	//var queryData = url.parse(req.url, true).query;
 	//res.write("Hello World");//the browser that called the request will write hello world/
 	//res.end();//end the request
@@ -350,7 +350,7 @@ function setBet(req, res, postData)
 	{
 		if(EW.Bet=="")
 			EW.Bet = 0;
-		
+
 		if(postData.bet==14)
 			nil[postData.id]=true;
 		else if(postData.bet==15)
@@ -386,7 +386,7 @@ function gamePlay(card, id)
 	if(plays.nplays==4)
 	{
 		plays.nplays=0;
-		
+
 		leadSuit = " ";
 		turn = winningID;
 
@@ -415,7 +415,7 @@ function endHand()
 		var q;
 		q=NS.Bet*10;
 		q+=NS.tricks-NS.Bet;
-		
+
 		NS.scoreHistory+="+" + q + "<NEWLINE>";
 		if(NS.score%10+NS.tricks-NS.Bet>9)
 		{
@@ -444,12 +444,12 @@ function endHand()
 		}
 
 		EW.score+=q;
-		
+
 	}
 	else
 	{
 		EW.score-=EW.Bet*10;
-		EW.scoreHistory+= "-" + (EW.Bet*10) +"<NEWLINE>"; 
+		EW.scoreHistory+= "-" + (EW.Bet*10) +"<NEWLINE>";
 	}
 
 	for(var i = 0; i<4; i++)
@@ -477,13 +477,13 @@ function endHand()
 				{
 					NS.scoreHistory+="+100<NEWLINE>"
 					NS.score+=100;
-				}	
+				}
 				else
 				{
 					EW.scoreHistory+="+100<NEWLINE>";
 					EW.score+=100;
 				}
-					
+
 			}
 		}
 
@@ -510,12 +510,12 @@ function endHand()
 				{
 					NS.scoreHistory+="+200<NEWLINE>"
 					NS.score+=200;
-				}	
+				}
 				else
 				{
 					EW.scoreHistory+="+200<NEWLINE>";
 					EW.score+=200;
-				}		
+				}
 			}
 		}
 	}
@@ -577,7 +577,7 @@ function addDetails()
 {
 	plays.detailString = "";
 	for(var i = 0; i<4;i++)
-	{ 
+	{
 		plays.detailString+= plays.tricks[i] + "<TB>" + plays.bet[i] + "<END-PLAYER>";
 	}
 
