@@ -1,0 +1,20 @@
+{
+  "name": "spades",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spadesServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node spadesServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommylettieri/spadeServerOriginal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tommylettieri/spadeServerOriginal/issues"
+  },
+  "homepage": "https://github.com/tommylettieri/spadeServerOriginal#readme"
+}
