@@ -295,7 +295,7 @@ http.createServer(function(req, res)//create a listening sockets with objects (r
 	//var queryData = url.parse(req.url, true).query;
 	//res.write("Hello World");//the browser that called the request will write hello world/
 	//res.end();//end the request
-}).listen(8080);//end create server
+}).listen(process.env.SPADES_PORT || 80);//end create server
 
 function handleSentMessage(req,res,postData)
 {
