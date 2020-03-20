@@ -244,7 +244,7 @@ var url = require('url');//import url
 
 http.createServer(function(req, res)//create a listening sockets with objects (request, response)
 {//start create server
-	//console.log('request recieved');//the console with write 'request recieved
+	console.log('request recieved');//the console with write 'request recieved
 
 	var body = '';//store request data;
 
@@ -286,6 +286,9 @@ http.createServer(function(req, res)//create a listening sockets with objects (r
 			case "checkSeats":
 				checkSeats(req,res);
 				break;
+			default:
+				res.write("TommyTOMTOM");
+				res.end();
 	}
 	});//end req.on
 
